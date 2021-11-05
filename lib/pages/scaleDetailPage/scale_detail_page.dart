@@ -9,14 +9,14 @@ class ScaleDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String type = Get.arguments["type"].toString() ?? "0";
+    int type = Get.arguments["type"] ?? 0;
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("음계 따라서 건반치기"),
         centerTitle: true,
       ),
-      body: Body(),
+      body: Body(type: type),
     );
   }
 }

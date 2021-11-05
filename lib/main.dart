@@ -1,7 +1,6 @@
 import 'package:beethoven/binding/init_binding.dart';
 import 'package:beethoven/pages/homepage/home_page.dart';
 import 'package:beethoven/pages/initpage/init_page.dart';
-import 'package:beethoven/pages/playpage/play_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
@@ -29,33 +28,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.amber,
         unselectedWidgetColor: Colors.grey,
       ),
-      initialRoute: "/",
       initialBinding: InitBinding(),
       getPages: getPages,
-      home: FutureBuilder(
-        future: FlutterBluetoothSerial.instance.requestEnable(),
-        builder: (context, future) {
-          if (future.connectionState == ConnectionState.waiting) {
-            return Scaffold(
-              body: Container(
-                height: double.infinity,
-                child: Center(
-                  child: Icon(
-                    Icons.bluetooth_disabled,
-                    size: 200.0,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-            );
-          } else if (future.connectionState == ConnectionState.done) {
-            return InitPage();
-          } else {
-            return InitPage();
-          }
-        },
-      ),
-      // home: PlayPage(),
+      home: HomePage(),
     );
   }
 }

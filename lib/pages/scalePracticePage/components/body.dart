@@ -30,14 +30,14 @@ class Body extends StatelessWidget {
           VerticalSpacing(of: 30),
           ElevatedButton(
             onPressed: () {
-              Get.toNamed("/ScaleDetailPage", arguments: {"type": 0});
+              Get.toNamed("/ScaleDetailPage", arguments: {"type": 1});
             },
             child: Text('2. 작은별'),
           ),
           VerticalSpacing(of: 30),
           ElevatedButton(
             onPressed: () {
-              Get.toNamed("/ScaleDetailPage", arguments: {"type": 0});
+              Get.toNamed("/ScaleDetailPage", arguments: {"type": 2});
             },
             child: Text('3. 학교 종'),
           ),

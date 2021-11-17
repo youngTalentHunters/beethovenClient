@@ -1,5 +1,8 @@
 import 'package:beethoven/constants.dart';
 
+import 'constant/scales.dart';
+import 'constant/sheets.dart';
+
 String typeToTitle(int type) {
   switch (type) {
     case 0:
@@ -30,4 +33,20 @@ List typeToList(int type) {
     default:
   }
   return schoolBellScale;
+}
+
+List typeToSheetList(int type) {
+  switch (type) {
+    case 0:
+      return threeBearsSheet;
+      break;
+    case 1:
+      return littleStarSheet;
+      break;
+    case 2:
+      return schoolBellSheet;
+      break;
+    default:
+  }
+  return schoolBellSheet;
 }

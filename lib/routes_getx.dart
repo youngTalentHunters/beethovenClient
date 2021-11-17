@@ -5,6 +5,7 @@ import 'package:beethoven/pages/scaleDetailPage/scale_detail_page.dart';
 import 'package:beethoven/pages/scalePracticePage/scale_practice_page.dart';
 import 'package:beethoven/pages/sheetDetailPage/sheet_detail_page.dart';
 import 'package:beethoven/pages/sheetPracticePage/sheet_practice_page.dart';
+import 'package:beethoven/pages/test.dart';
 import 'package:get/get.dart';
 
 final getPages = [
@@ -12,7 +13,8 @@ final getPages = [
   GetPage(name: "/ScalePracticePage", page: () => ScalePracticePage()),
   GetPage(name: "/ScaleDetailPage", page: () => ScaleDetailPage()),
   GetPage(name: "/SheetPracticePage", page: () => SheetPracticePage()),
-  GetPage(name: "/SheetDetailPagee", page: () => SheetDetailPage()),
+  GetPage(name: "/SheetDetailPage", page: () => SheetDetailPage()),
   GetPage(name: "/RecordPage", page: () => RecordPage()),
   GetPage(name: "/InitPage", page: () => InitPage()),
+  GetPage(name: "/TestPage", page: () => TestPage()),
 ];

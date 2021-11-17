@@ -142,6 +142,7 @@ class _BodyState extends State<Body> {
     );
   }
 
+  // ** 메세지 받기
   void _onDataReceived(Uint8List data) {
     // Allocate buffer for parsed data
     int backspacesCounter = 0;
@@ -175,7 +176,7 @@ class _BodyState extends State<Body> {
     });
   }
 
-  // 메세지 보내기
+  // ** 메세지 보내기
   void _sendMessage(String text) async {
     text = text.trim();
     textEditingController.clear();

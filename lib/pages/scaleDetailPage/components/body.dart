@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:beethoven/commonWidget/vertical_spacing.dart';
 import 'package:beethoven/config/sizeconfig.dart';
-import 'package:beethoven/constants.dart';
 import 'package:beethoven/conversion.dart';
 import 'package:beethoven/pages/scaleDetailPage/components/scaleWord.dart';
 import 'package:flutter/material.dart';
@@ -24,13 +23,13 @@ class _BodyState extends State<Body> {
 
   void startTimer() {
     _timer = Timer.periodic(
-        new Duration(milliseconds: threeBearsScale[timepos]["time"]),
+        new Duration(milliseconds: scales[timepos]["time"]),
         (Timer timer) => {
               setState(() {
                 timepos++;
                 timer.cancel();
               }),
-              if (timepos + 2 <= threeBearsScale.length)
+              if (timepos + 2 <= scales.length)
                 {
                   startTimer(),
                 }

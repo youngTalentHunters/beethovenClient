@@ -15,11 +15,15 @@ class Body extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          CircleAvatar(
+            radius: 50,
+            backgroundImage: AssetImage("assets/images/scaleImage.png"),
+          ),
           Text(
             "연주할 곡을 선택하세요!",
             style: TextStyle(fontSize: 30, fontFamily: "Nanumpen"),
           ),
-          VerticalSpacing(of: 30),
+          VerticalSpacing(of: 50),
           buildButton("assets/images/bearcharacter.png", "1. 곰세마리",
               "곰 세마리가 한 집에 있어 ...", 0),
           VerticalSpacing(of: 30),
@@ -28,6 +32,7 @@ class Body extends StatelessWidget {
           VerticalSpacing(of: 30),
           buildButton("assets/images/bellcharacter.jpg", "3. 학교 종",
               "학교 종이 땡땡땡 어서 모이자 ...", 2),
+          VerticalSpacing(of: 50),
         ],
       ),
     );
@@ -56,7 +61,7 @@ Widget buildButton(String imageUrl, String title, String subTitle, int type) {
       child: ListTile(
         leading: Image.asset(
           imageUrl ?? "assets/images/RecordImage.png",
-          width: getProportionateScreenWidth(75),
+          width: getProportionateScreenWidth(50),
           fit: BoxFit.fill,
         ),
         title: Text(

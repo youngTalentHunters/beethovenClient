@@ -46,19 +46,22 @@ class ScaleDB {
           customScale.imageUrl,
           customScale.createdAt.toString()
         ]);
+    print("scale insert 후 index 넘버인 듯? : " + res.toString());
     return res;
   }
 
-  Future<List<CustomScale>> getAllData() async {
+  Future<List<CustomScale>> getAllDataBySheetId(int sheetId) async {
     final db = await database;
-    var res = await db.query(tableName);
+    var res = await db.rawQuery(
+        'SELECT rowId, sheetId, text, imageUrl, createdAt FROM $tableName WHERE sheetId = ? ',
+        [sheetId]);
     List<CustomScale> list =
         res.isNotEmpty ? res.map((c) => CustomScale.fromJson(c)).toList() : [];
     return list;
   }
 
   // DELETE
-  void deleteDataBySheetId(String sheetId) async {
+  void deleteDataBySheetId(int sheetId) async {
     final db = await database;
     var res = await db
         .rawQuery('DELETE FROM $tableName WHERE sheetId = ?', [sheetId]);

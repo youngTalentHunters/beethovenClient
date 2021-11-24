@@ -57,14 +57,28 @@ class _BodyState extends State<Body> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          VerticalSpacing(of: 30),
-          Text(
-            typeToTitle(this.widget.type),
-            style: TextStyle(
-                fontSize: getProportionateScreenWidth(18),
-                fontWeight: FontWeight.bold),
+          Container(
+            height: getProportionateScreenHeight(200),
+            width: getProportionateScreenWidth(414),
+            decoration: new BoxDecoration(
+              image: new DecorationImage(
+                  image: Image.asset("assets/images/scaleTopImage.png").image,
+                  fit: BoxFit.fill),
+            ),
+            child: Container(
+                padding: EdgeInsets.only(bottom: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      typeToTitle(this.widget.type),
+                      style: TextStyle(fontFamily: "NanumPen", fontSize: 30),
+                    ),
+                  ],
+                )),
           ),
-          VerticalSpacing(of: 20),
+          VerticalSpacing(of: 10),
           KeyboardImage(scales: scales, timepos: timepos),
           VerticalSpacing(of: 20),
           ScaleWord(timepos: timepos, scales: scales),

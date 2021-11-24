@@ -16,12 +16,6 @@ class Body extends StatelessWidget {
           height: size.height * 0.35,
           decoration: BoxDecoration(
             color: mainColor,
-            // image: DecorationImage(
-            //   image: Image.asset(
-            //     "assets/images/character_2.png",
-            //   ).image,
-            //   fit: BoxFit.fitHeight,
-            // ),
           ),
           child: Container(
             alignment: Alignment.bottomRight,
@@ -58,15 +52,18 @@ class Body extends StatelessWidget {
                       "아두이노 피아노와 함께 음악을 배워봐요~",
                     ),
                   ),
-                  VerticalSpacing(of: 100),
+                  VerticalSpacing(of: 90),
                   buildButton("assets/images/scaleImage.png", "건반 따라서 연습하기",
                       "1단계 도전하기", "/ScalePracticePage"),
-                  VerticalSpacing(of: 30),
+                  VerticalSpacing(of: 20),
                   buildButton("assets/images/sheetImage.jpeg", "악보 보면서 연습하기",
                       "2단계 도전하기", "/SheetPracticePage"),
-                  VerticalSpacing(of: 30),
+                  VerticalSpacing(of: 20),
                   buildButton("assets/images/RecordImage.png", "녹음하며 멜로디 구성하기",
-                      "3단계 도전하기", "/InitPage")
+                      "3단계 도전하기", "/InitPage"),
+                  VerticalSpacing(of: 20),
+                  buildButton("assets/images/mySheetImage.png", "내가 만든 악보 확인하기",
+                      "나만의 악보를 만들어봐~", "/MySheetsPage")
                 ],
               ),
             ),

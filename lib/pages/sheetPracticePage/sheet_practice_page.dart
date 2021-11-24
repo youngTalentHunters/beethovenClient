@@ -9,7 +9,10 @@ class SheetPracticePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("악보 따라서 건반치기"),
+        title: Text(
+          "악보 따라서 연습하기",
+          style: TextStyle(fontFamily: "NanumPen", fontSize: 30),
+        ),
         centerTitle: true,
       ),
       body: Body(),

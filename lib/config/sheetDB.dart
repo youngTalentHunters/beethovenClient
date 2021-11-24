@@ -33,7 +33,7 @@ class SheetDB {
     }, onUpgrade: (db, oldVersion, newVersion) {});
   }
 
-  Future<void> insertData(CustomSheet customSheet) async {
+  Future<int> insertData(CustomSheet customSheet) async {
     final db = await database;
     var res = await db.rawInsert(
         'INSERT INTO $tableName(rowId, title, id, createdAt) VALUES(?,?,?,?)', [
@@ -42,21 +42,23 @@ class SheetDB {
       customSheet.id,
       customSheet.createdAt.toString()
     ]);
+    print(res);
     return res;
   }
 
-  Future<List<CustomScale>> getAllData() async {
+  Future<List<CustomSheet>> getAllData() async {
     final db = await database;
     var res = await db.query(tableName);
-    List<CustomScale> list =
-        res.isNotEmpty ? res.map((c) => CustomScale.fromJson(c)).toList() : [];
+    List<CustomSheet> list =
+        res.isNotEmpty ? res.map((c) => CustomSheet.fromJson(c)).toList() : [];
     return list;
   }
 
   // DELETE
-  void deleteData(String id) async {
+  void deleteData(int rowId) async {
     final db = await database;
-    var res = await db.rawQuery('DELETE FROM $tableName WHERE id = ?', [id]);
+    var res =
+        await db.rawQuery('DELETE FROM $tableName WHERE rowId = ?', [rowId]);
     print(res);
     print("sheet 삭제");
   }

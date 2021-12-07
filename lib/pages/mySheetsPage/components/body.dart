@@ -15,6 +15,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+    // loading 끝나면 내가 만든 악보들의 리스트 보여줌
     return Obx(() => MySheetController.to.isLoading.value
         ? Container()
         : ListView.builder(
@@ -30,7 +31,6 @@ class _BodyState extends State<Body> {
                       "rowId": MySheetController.to.customSheets[index].rowId,
                       "title": MySheetController.to.customSheets[index].title,
                     });
-                    print("hi");
                   });
             }));
   }

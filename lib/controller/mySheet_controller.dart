@@ -21,12 +21,6 @@ class MySheetController extends GetxController {
     super.onInit();
   }
 
-  void insertSheet() {
-    sheetDB.insertData(
-      new CustomSheet(id: 2, title: "new one", createdAt: DateTime.now()),
-    );
-  }
-
   void loadSheet() async {
     List<CustomSheet> res = await sheetDB.getAllData();
     print(customSheets.isEmpty ? "원소 없음" : customSheets.last.rowId.toString());

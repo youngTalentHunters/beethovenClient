@@ -30,6 +30,7 @@ class _Message {
 
 class _BodyState extends State<Body> {
   final _textController = TextEditingController();
+  // 블루투스 통신으로 넘어오는 음계값을 저장하는 빈 배열
   List<int> recordScales = [];
   // ** 블루투스 통신 관련 로직 시작
   BluetoothConnection connection;
@@ -182,8 +183,8 @@ class _BodyState extends State<Body> {
                           .insertSheet(_textController.text)
                           .then((value) => RecordController.to
                               .insertScale(recordScales, value));
-                      // 악보 저장
-                      // 음계 저장
+                      // 입력한 제목(title)에 해당되는 새로운 악보 생성후 저장
+                      // 악보 생성 후, callback으로 recordScales에 저장된 음계들 저장
                       Get.back();
                       toastMessage("저장되었습니다!");
                     },
@@ -268,9 +269,10 @@ class _BodyState extends State<Body> {
     // 저장하고, 값 변경
     String dataString = String.fromCharCodes(buffer);
     int scale = int.parse(dataString);
-    print(int.parse(dataString));
-    // currentScale 한국어로 변경, device DB에 insert까지.
+
+    // 넘어온 음계값에 해당되는 image로 변경
     RecordController.to.setCurrentScale(scale);
+    // 넘어온 음계값을 recordScales(빈 배열)에 저장
     recordScales.add(scale);
 
     print('currentScale변경, device DB에 insert');
